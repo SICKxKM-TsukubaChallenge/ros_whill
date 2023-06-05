@@ -176,6 +176,13 @@ public:
     {
         int x;
         int y;
+        int z;
+    } Data3D;
+
+    typedef struct
+    {
+        int x;
+        int y;
     } Joy;
 
     typedef struct
@@ -190,6 +197,8 @@ public:
         int speed;
     } Motor;
 
+    Data3D accelerometer = {0};
+    Data3D gyro = {0};
     Joy virtual_joy = {0};
     Joy joy = {0};
     Battery battery = {0};
