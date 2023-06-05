@@ -129,6 +129,12 @@ nav_msgs::Odometry Odometry::getROSOdometry()
     odom.pose.pose.position.y = pose.y;
     odom.pose.pose.position.z = base_link_height;
     odom.pose.pose.orientation = odom_quat;
+    odom.pose.covariance = {  0.1, 0, 0, 0, 0, 0,
+                             0,  0.1, 0, 0, 0, 0,
+                             0, 0,  0.000000000001, 0, 0, 0,
+                             0, 0, 0, 99999, 0, 0,
+                             0, 0, 0, 0, 99999, 0,
+                             0, 0, 0, 0, 0,  0.1};
 
     //velocity
     odom.twist.twist.linear.x = velocity.x;
@@ -137,6 +143,12 @@ nav_msgs::Odometry Odometry::getROSOdometry()
     odom.twist.twist.angular.x = 0.0;
     odom.twist.twist.angular.y = 0.0;
     odom.twist.twist.angular.z = velocity.theta;
+    odom.twist.covariance = {  0, 0, 0, 0, 0, 0,
+                              0, 0, 0, 0, 0, 0,
+                              0, 0, 0, 0, 0, 0,
+                              0, 0, 0, 0, 0, 0,
+                              0, 0, 0, 0, 0, 0,
+                              0, 0, 0, 0, 0,  0}	;
 
     return odom;
 }
