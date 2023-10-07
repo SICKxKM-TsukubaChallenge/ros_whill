@@ -524,10 +524,10 @@ int main(int argc, char **argv)
             }
         }
 
-        sleep_ms(10);
-        whill->begin(20); // ms
+        sleep_ms(9);
+        whill->begin(10); // ms, 20
 
-        ros::Rate rate(100);
+        ros::Rate rate(200);
 
         while (ros::ok())
         {
